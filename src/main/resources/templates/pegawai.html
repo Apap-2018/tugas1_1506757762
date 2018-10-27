@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<title th:include="fragments/fragment :: headerFragment('Add Success')"></title>
+		<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+		<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+	</head>
+
+	<body>
+	<nav th:replace="fragments/fragment :: navbar"></nav>
+		<div class="container-fluid">
+			<h2 th:text="'Lihat Data Pegawai -  '+ ${pegawai.nip}"></h2>
+			<p th:text="'NIP : '+ ${pegawai.nip}"></p>
+			<p th:text="'Jabatan : '+ ${pegawai.nama}"></p>
+			<p th:text="'Tempat lahir : '+ ${pegawai.tempat_lahir}"></p>
+			<p th:text="'Tanggal lahir : '+ ${pegawai.tanggal_lahir}"></p>
+			<p th:text="'Tahun masuk : '+ ${pegawai.tahun_masuk}"></p>
+			<p th:text="'Nama Instansi : '+ ${pegawai.getInstansi().nama} + ' - '+ ${pegawai.getInstansi().getProvinsi().nama}"></p>
+			<table>
+				<tr>
+					<td>
+						Jabatan : &nbsp; 
+					</td>
+			   		<td>
+			   			<p th:each="pegawai: ${pegawai.listJabatanPegawai}">
+							<li th:text=${pegawai.getJabatan().nama}></li>
+						</p>
+			   		</td>
+				</tr>
+			</table>  
+			<p th:text="'Gaji  : Rp'+ ${pegawai.getGaji()} "></p>
+			
+			
+			
+			
+		</div>
+	</body>
+
+	</html>

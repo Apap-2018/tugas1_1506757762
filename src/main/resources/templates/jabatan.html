@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<title th:include="fragments/fragment :: headerFragment('Add Success')"></title>
+		<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+		<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+	</head>
+
+	<body>
+	<nav th:replace="fragments/fragment :: navbar"></nav>
+		<div class="container-fluid">
+			
+			<h2 th:text="'Detail Jabatan '+ ${jabatan.nama}"></h2>
+			
+			<p th:text="'Nama : '+ ${jabatan.nama}"></p>
+			<p th:text="'Deskripsi : '+ ${jabatan.deskripsi}"></p>
+			<p th:text="'Gaji pokok : '+ ${jabatan.gaji_pokok}"></p>
+			
+			<a role="button" class="btn btn-warning" th:href="@{/jabatan/jabatan-update(id=${jabatan.id})}">Update</a>
+			<a role="button" class="btn btn-warning" th:href="@{/jabatan/delete(id=${jabatan.id})}">Delete</a>
+		</div>
+	</body>
+
+	</html>

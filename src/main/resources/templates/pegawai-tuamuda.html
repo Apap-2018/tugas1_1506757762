@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<title th:include="fragments/fragment :: headerFragment('Add Success')"></title>
+		<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+		<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+	</head>
+
+	<body>
+	<nav th:replace="fragments/fragment :: navbar"></nav>
+		<div class="container-fluid">
+			<h2 th:text="'Data Pegawai Tua'"></h2>
+			<p th:text="'NIP : '+ ${tua.nip}"></p>
+			<p th:text="'Jabatan : '+ ${tua.nama}"></p>
+			<p th:text="'Tempat lahir : '+ ${tua.tempat_lahir}"></p>
+			<p th:text="'Tanggal lahir : '+ ${tua.tanggal_lahir}"></p>
+			<p th:text="'Tahun masuk : '+ ${tua.tahun_masuk}"></p>
+			<p th:text="'Nama Instansi : '+ ${tua.getInstansi().nama} + ' - '+ ${tua.getInstansi().getProvinsi().nama}"></p>
+			<table>
+				<tr>
+					<td>
+						Jabatan : &nbsp; 
+					</td>
+			   		<td>
+			   			<p th:each="pegawai: ${tua.listJabatanPegawai}">
+							<li th:text=${pegawai.getJabatan().nama}></li>
+						</p>
+			   		</td>
+				</tr>
+			</table>  
+			<p th:text="'Gaji  : Rp'+ ${muda.getGaji()} "></p>
+			
+			<hr><br>
+			
+			<h2 th:text="'Data Pegawai Muda'"></h2>
+			<p th:text="'NIP : '+ ${muda.nip}"></p>
+			<p th:text="'Jabatan : '+ ${muda.nama}"></p>
+			<p th:text="'Tempat lahir : '+ ${muda.tempat_lahir}"></p>
+			<p th:text="'Tanggal lahir : '+ ${muda.tanggal_lahir}"></p>
+			<p th:text="'Tahun masuk : '+ ${muda.tahun_masuk}"></p>
+			<p th:text="'Nama Instansi : '+ ${muda.getInstansi().nama} + ' - '+ ${muda.getInstansi().getProvinsi().nama}"></p>
+			<table>
+				<tr>
+					<td>
+						Jabatan : &nbsp; 
+					</td>
+			   		<td>
+			   			<p th:each="pegawai: ${muda.listJabatanPegawai}">
+							<li th:text=${pegawai.getJabatan().nama}></li>
+						</p>
+			   		</td>
+				</tr>
+			</table>  
+			<p th:text="'Gaji  : Rp'+ ${muda.getGaji()} "></p>
+			
+		</div>
+	</body>
+
+	</html>

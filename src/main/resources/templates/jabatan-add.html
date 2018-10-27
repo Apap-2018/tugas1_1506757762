@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<title th:include="fragments/fragment :: headerFragment('Add Success')"></title>
+		<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+		<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+	</head>
+
+	<body>
+	<nav th:replace="fragments/fragment :: navbar"></nav>
+		<div class="container-fluid">
+			
+	<form th:action="@{/jabatan-add}" th:object="${jabatan}" method="POST">
+			<div class="form-group row">
+	        	<label for="nama" class="col-sm-3 col-form-label">Nama :</label>
+	            <div class="col-sm-6">
+	            	<input type="text" name="nama" class="form-control" id="nama" placeholder="Nama" required>
+	            </div>
+	    	</div>
+	    	
+	    	<div class="form-group row">
+	        	<label for="nama" class="col-sm-3 col-form-label">Deskripsi :</label>
+	            <div class="col-sm-6">
+	            	<input type="text" name="deskripsi" class="form-control" id="deskripsi" placeholder="Deskripsi" required>
+	            </div>
+	    	</div>
+	    	
+	    	<div class="form-group row">
+	        	<label for="nama" class="col-sm-3 col-form-label">Gaji pokok :</label>
+	            <div class="col-sm-6">
+	            	<input type="text" name="gaji_pokok" class="form-control" id="gaji_pokok" placeholder="Gaji pokok" required>
+	            </div>
+	    	</div>
+	    	<button class="btn btn-warning" type="submit">Submit</button>
+		</form>
+			
+		</div>
+	</body>
+
+	</html>
